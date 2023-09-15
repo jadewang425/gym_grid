@@ -42,4 +42,3 @@ Create Workout Plan
 ![screenshot](https://i.imgur.com/lDiVABe.png)
 
 #### Link to the app
-
