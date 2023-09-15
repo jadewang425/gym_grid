@@ -43,6 +43,3 @@ Create Workout Plan
 
 #### Link to the app
 
-Questions for Timm: 
-- how do we share database?
-- project 3 accessment
