@@ -22,6 +22,7 @@ AAU, I want to
 - like a blog that you can see other people's plans
 - record weights used for the exercise
 - In create workout form, search existing exercise box predicts based on letter you type
+- customize exercise name
 
 ## Technologies Used
 - Python
