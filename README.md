@@ -31,6 +31,16 @@ AAU, I want to
 - HTML
 - AWS
 
+```HTML
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=IBM+Plex+Sans&family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+```
+```CSS
+font-family: 'IBM Plex Mono', monospace;
+font-family: 'IBM Plex Sans', sans-serif;
+font-family: 'Noto Sans', sans-serif;
+```
 ## Wireframes
 Workout Plans/Index Page
 ![wireframe](https://i.imgur.com/nxr1aei.png)
