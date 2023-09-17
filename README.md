@@ -7,10 +7,9 @@ Effortlessly plan and track your fitness journey with GymGrid. Create customized
 AAU, I want to
 - create workout plans
 - create exercises to be added to the workout plan
-    - add equipment to exercise
+    - add reps and weights to each set
 - see all my wokrout plans on my index page
 - add exercises on the workout detail page
-- add duration to workout or exercises
 - add pictures to my workout plan
 
 
@@ -31,11 +30,13 @@ AAU, I want to
 - HTML
 - AWS
 
+##### HTML
 ```HTML
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=IBM+Plex+Sans&family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
 ```
+##### CSS
 ```CSS
 font-family: 'IBM Plex Mono', monospace;
 font-family: 'IBM Plex Sans', sans-serif;
@@ -43,11 +44,11 @@ font-family: 'Noto Sans', sans-serif;
 ```
 ## Wireframes
 Workout Plans/Index Page
-![wireframe](https://i.imgur.com/nxr1aei.png)
+![wireframe](https://i.imgur.com/3C3gdmB.png)
 Workout Details Page
-![wireframe](https://i.imgur.com/F4xqtPD.png)
+![wireframe](https://i.imgur.com/6lGXqlK.png)
 Create Workout Plan
-![wireframe](https://i.imgur.com/byvPw3J.png)
+![wireframe](https://i.imgur.com/urJUw5w.png)
 
 ## ERD
 ![screenshot](https://i.imgur.com/lDiVABe.png)
