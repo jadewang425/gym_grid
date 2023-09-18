@@ -1,0 +1,13 @@
+{% load 'base.html' %}
+{% block content %}
+
+    <h1>Exercise Details</h1>
+
+    <div>Name: {{ exercise.name }}</div>
+    <div>Category: {{ exercise.category }}</div>
+    <div>
+        <a href="% url 'exercises_update' exercise.id %" class="btn">Edit</a>
+        <a href="{% url 'exercises_delete' exercise.id %}" class="btn">Delete</a>
+    </div>
+
+{% endblock %}
