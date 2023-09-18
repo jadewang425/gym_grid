@@ -47,4 +47,4 @@ class ExerciseDetail(DetailView):
 
 class ExerciseCreate(CreateView):
     model = Exercise
-    template_name = '__all__'
+    fields = '__all__'
