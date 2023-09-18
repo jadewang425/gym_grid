@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect
 
 # Import CBV's
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.views.generic.detail import DetailView
+from django.views.generic import ListView
 
 # Import Models
 from .models import Workout, Exercise, Set
@@ -34,3 +36,15 @@ class WorkoutUpdate(UpdateView):
 class WorkoutDelete(DeleteView):
     model = Workout
     success_url = '/workouts'
+
+class ExerciseList(ListView):
+    model = Exercise
+    template_name = 'exercises/index.html'
+
+class ExerciseDetail(DetailView):
+    model = Exercise
+    template_name = 'exercises/detail.html'
+
+class ExerciseCreate(CreateView):
+    model = Exercise
+    template_name = '__all__'
