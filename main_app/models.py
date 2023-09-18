@@ -1,5 +1,28 @@
 from django.db import models
+from datetime import date
 
-# Create your models here.
-# Commented by Jade - User model needs to be created early on because it'll be difficult to update later in the project
-# https://docs.djangoproject.com/en/4.2/topics/auth/customizing/#:~:text=your%20user%20model.-,Using%20a%20custom%20user%20model%20when%20starting%20a%20project,-%C2%B6
+class Exercise(models.Model):
+    name = models.CharField(max_length=50)
+    category = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.name
+
+class Workout(models.Model):
+    name = models.CharField(max_length=100)
+    date = models.DateField('workout date')
+    duration = models.CharField(max_length=50)
+    description = models.TextField(max_length=200)
+    exercises = models.ManyToManyField(Exercise, related_name='workouts')
+
+    def __str__(self):
+        return self.name
+
+class Set(models.Model):
+    exercise = models.ForeignKey(Exercise, on_delete=models.CASCADE)
+    workout = models.ForeignKey(Workout, on_delete=models.CASCADE)
+    weights = models.IntegerField()
+    reps = models.IntegerField()
+
+    def __str__(self):
+        return f"{self.exercise.name} - {self.weights} lbs - {self.reps} reps"
