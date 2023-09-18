@@ -1,0 +1,16 @@
+{% load 'base.html' %}
+{% block content %}
+
+    <h1>List of Exercises</h1>
+    {% if exercises %}
+        {% for exercise in exercises %}
+        <a href="{% url 'exercise_detail' exercise.id %}">
+            <div>Name: {{ exercise.name }}</div>
+            <div>Category: {{ exercise.category }}</div>
+        </a>
+        {% endfor %}
+    {% else %}
+        <div>No Exercise Added Yet</div>
+    {% endif %}
+
+{% endblock %}
