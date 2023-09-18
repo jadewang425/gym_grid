@@ -10,6 +10,9 @@ from .models import Workout, Exercise, Set
 def home(request):
     return render(request, 'home.html')
 
+def about(request):
+    return render(request, 'about.html')
+
 def workouts_index(request):
     workouts = Workout.objects.all()
     return render(request, 'workouts/index.html', { 'workouts': workouts})
