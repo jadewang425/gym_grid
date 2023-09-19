@@ -46,7 +46,7 @@ class Workout(models.Model):
 
     def __str__(self):
         return self.name
-<<<<<<< HEAD
+<<<<<<<<< Temporary merge branch 1
     
     def get_absolute_url(self):
         return reverse('detail', kwargs={'workout_id': self.id})
@@ -59,5 +59,5 @@ class Set(models.Model):
 
     def __str__(self):
         return f"{self.exercise.name} - {self.weights} lbs - {self.reps} reps"
-=======
->>>>>>> 32a673d5a4d209ca2d287fd6679ab6e2094e96f3
+=========
+>>>>>>>>> Temporary merge branch 2

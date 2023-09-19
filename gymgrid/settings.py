@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+<<<<<<<<< Temporary merge branch 1
 """
 Django settings for gymgrid project.
 
@@ -126,7 +126,7 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-=======
+=========
 """
 Django settings for gymgrid project.
 
@@ -253,4 +253,4 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
->>>>>>> 32a673d5a4d209ca2d287fd6679ab6e2094e96f3
+>>>>>>>>> Temporary merge branch 2
