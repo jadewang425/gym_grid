@@ -51,6 +51,6 @@ Create Workout Plan
 ![wireframe](https://i.imgur.com/urJUw5w.png)
 
 ## ERD
-![screenshot](https://i.imgur.com/FZMHuHc.png)
+![screenshot](https://i.imgur.com/5Lu66Zw.png)
 
 #### Link to the app

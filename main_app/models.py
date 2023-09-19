@@ -1,8 +1,8 @@
 from django.db import models
 from datetime import date
 from django.urls import reverse
+# import user
 from django.contrib.auth.models import User
-
 
 CATEGORIES = (
     ('abs', 'Abs'), 
