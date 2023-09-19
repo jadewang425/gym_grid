@@ -1,5 +1,6 @@
 from django.db import models
 from datetime import date
+from django.urls import reverse
 
 class Exercise(models.Model):
     name = models.CharField(max_length=50)
