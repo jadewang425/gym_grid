@@ -47,4 +47,12 @@ class ExerciseDetail(DetailView):
 
 class ExerciseCreate(CreateView):
     model = Exercise
-    fields = '__all__'
+    fields = ['name']
+
+class ExerciseUpdate(UpdateView):
+    model = Exercise
+    fields = ['name']
+
+class ExerciseDelete(DeleteView):
+    model = Exercise
+    success_url = '/exercises/'
