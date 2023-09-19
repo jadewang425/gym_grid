@@ -1,8 +1,11 @@
 from django.db import models
 from datetime import date
 from django.urls import reverse
+
+# import user
 from django.contrib.auth.models import User
 
+import requests
 
 CATEGORIES = (
     ('abs', 'Abs'), 
@@ -15,14 +18,26 @@ CATEGORIES = (
     ('shoulders', 'Shoulders')
 )
 
+# function to return API data as a tuple of two-tuples for equipment dropdown
+def get_eqpt_lst():
+    response = requests.get('https://wger.de/api/v2/equipment')
+    objects = response.json()
+    lst_obj = objects['results']
+    equipments = [(i['id'], i['name']) for i in lst_obj]
+    return tuple(equipments)
+
 class Exercise(models.Model):
     name = models.CharField(max_length=50)
     category = models.CharField(
         max_length=20,
         choices=CATEGORIES,
-        default=CATEGORIES[0][0]
-        )
-    equipment = models.CharField(max_length=20)
+        default=CATEGORIES[0][0],
+    )
+    equipment = models.CharField(
+        max_length=20,
+        choices=get_eqpt_lst(),
+        default=get_eqpt_lst()[0][0],
+    )
     weights = models.IntegerField()
     reps = models.IntegerField()
     sets = models.IntegerField()
