@@ -6,7 +6,7 @@ from django.views.generic.detail import DetailView
 from django.views.generic import ListView
 
 # Import Models
-from .models import Workout, Exercise, Set
+from .models import Workout, Exercise
 
 # Create your views here.
 def home(request):
