@@ -4,7 +4,7 @@ from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.detail import DetailView
 from django.views.generic import ListView
-
+from .forms import ExerciseForm
 # Import Models
 from .models import Workout, Exercise
 
@@ -47,11 +47,11 @@ class ExerciseDetail(DetailView):
 
 class ExerciseCreate(CreateView):
     model = Exercise
-    fields = ['name']
+    form_class = ExerciseForm
 
 class ExerciseUpdate(UpdateView):
     model = Exercise
-    fields = ['name']
+    fields = '__all__'
 
 class ExerciseDelete(DeleteView):
     model = Exercise

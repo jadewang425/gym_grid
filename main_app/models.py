@@ -8,14 +8,14 @@ from django.contrib.auth.models import User
 
 
 CATEGORIES = (
-    (1, 'Abs'), 
-    (2, 'Arms'), 
-    (3, 'Back'), 
-    (4, 'Calves'), 
-    (5, 'Cardio'), 
-    (6, 'Chest'), 
-    (7, 'Legs'), 
-    (8, 'Shoulders'),
+    ('abs', 'Abs'), 
+    ('arms', 'Arms'), 
+    ('back', 'Back'), 
+    ('calves', 'Calves'), 
+    ('cardio', 'Cardio'), 
+    ('chest', 'Chest'), 
+    ('legs', 'Legs'), 
+    ('shoulders', 'Shoulders')
 )
 
 class Exercise(models.Model):
