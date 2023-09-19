@@ -2,8 +2,21 @@
 {% block content %}
 
 <h1> Workout Details </h1>
-<div>
-    <a href="% url 'workouts_update' workout.id %" class="btn">Edit</a>
-    <a href="{% url 'workouts_delete' workout.id %}" class="btn">Delete</a>
+<div class="col">
+    <div class="card">
+        <div class="car-content">
+            <span class="card-title">{{ workout.name }}</span>
+            <p> {{ workout.description }}</p>
+            <p>{{ workout.duration }}</p>
+        </div>
+    </div>
 </div>
+<div class="row">
+    <div class="card">
+        <div class="card-content">
+            <span class="card-title">{{ exercises.name }}</span>
+        </div>
+    </div>
+</div>
+
 {% endblock%}
