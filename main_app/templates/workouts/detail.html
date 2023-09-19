@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {% extends 'base.html' %}
 {% block content %}
 
@@ -12,4 +13,14 @@
 </div>
 
 
+=======
+{% extends 'base.html' %}
+{% block content %}
+
+<h1> Workout Details </h1>
+<div>
+    <a href="% url 'workouts_update' workout.id %" class="btn">Edit</a>
+    <a href="{% url 'workouts_delete' workout.id %}" class="btn">Delete</a>
+</div>
+>>>>>>> 32a673d5a4d209ca2d287fd6679ab6e2094e96f3
 {% endblock%}
