@@ -1,6 +1,8 @@
 from django.db import models
 from datetime import date
 from django.urls import reverse
+# import user
+from django.contrib.auth.models import User
 
 class Exercise(models.Model):
     name = models.CharField(max_length=50)
@@ -18,6 +20,9 @@ class Workout(models.Model):
 
     def __str__(self):
         return self.name
+    
+    def get_absolute_url(self):
+        return reverse('detail', kwargs={'workout_id': self.id})
 
 class Set(models.Model):
     exercise = models.ForeignKey(Exercise, on_delete=models.CASCADE)
