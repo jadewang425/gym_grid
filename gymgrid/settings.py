@@ -78,6 +78,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'gymgrid',
+        'USER': 'brendin',
+        'PASSWORD': 'Acquire0702',
     }
 }
 

@@ -6,7 +6,7 @@ from django.views.generic.detail import DetailView
 from django.views.generic import ListView
 
 # Import Models
-from .models import Workout, Exercise
+from .models import Workout, Exercise, Set
 
 # Create your views here.
 def home(request):
@@ -26,12 +26,12 @@ def workouts_detail(request, workout_id):
 
 class WorkoutCreate(CreateView):
     model = Workout
-    fields = ['name', 'date', 'duration', 'description']
+    fields = '__all__'
     success_url = '/workouts/{workout_id}'
 
 class WorkoutUpdate(UpdateView):
     model = Workout 
-    fields = ['name', 'date', 'duration', 'description']
+    fields = '__all__'
 
 class WorkoutDelete(DeleteView):
     model = Workout
@@ -47,4 +47,12 @@ class ExerciseDetail(DetailView):
 
 class ExerciseCreate(CreateView):
     model = Exercise
-    fields = '__all__'
+    fields = ['name']
+
+class ExerciseUpdate(UpdateView):
+    model = Exercise
+    fields = ['name']
+
+class ExerciseDelete(DeleteView):
+    model = Exercise
+    success_url = '/exercises/'

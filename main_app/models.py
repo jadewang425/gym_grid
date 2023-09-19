@@ -1,7 +1,9 @@
 from django.db import models
 from datetime import date
-from django.contrib.auth.models import User
 from django.urls import reverse
+
+from django.contrib.auth.models import User
+
 
 CATEGORIES = (
     (1, 'Abs'), 
@@ -27,7 +29,11 @@ class Exercise(models.Model):
     sets = models.IntegerField()
 
     def __str__(self):
+
         return f"{self.name}: {self.reps} reps x {self.sets} set(s)"
+    
+    def get_absolute_url(self):
+        return reverse('exercises_detail', kwargs={'pk': self.id})
 
 class Workout(models.Model):
     name = models.CharField(max_length=100)
