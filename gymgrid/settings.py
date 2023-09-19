@@ -1,4 +1,3 @@
-<<<<<<<<< Temporary merge branch 1
 """
 Django settings for gymgrid project.
 
@@ -126,7 +125,6 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-=========
 """
 Django settings for gymgrid project.
 
@@ -206,9 +204,7 @@ WSGI_APPLICATION = 'gymgrid.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'gymgrid',
-        'USER': 'brendin',
-        'PASSWORD': 'Acquire0702',
+        'NAME': 'gymgrid'
     }
 }
 
@@ -253,4 +249,3 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
->>>>>>>>> Temporary merge branch 2

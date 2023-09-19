@@ -1,9 +1,6 @@
 from django.db import models
 from datetime import date
 from django.urls import reverse
-# import user
-from django.contrib.auth.models import User
-
 from django.contrib.auth.models import User
 
 
@@ -46,18 +43,6 @@ class Workout(models.Model):
 
     def __str__(self):
         return self.name
-<<<<<<<<< Temporary merge branch 1
     
     def get_absolute_url(self):
         return reverse('detail', kwargs={'workout_id': self.id})
-
-class Set(models.Model):
-    exercise = models.ForeignKey(Exercise, on_delete=models.CASCADE)
-    workout = models.ForeignKey(Workout, on_delete=models.CASCADE)
-    weights = models.IntegerField()
-    reps = models.IntegerField()
-
-    def __str__(self):
-        return f"{self.exercise.name} - {self.weights} lbs - {self.reps} reps"
-=========
->>>>>>>>> Temporary merge branch 2

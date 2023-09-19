@@ -48,6 +48,7 @@ class ExerciseDetail(DetailView):
 class ExerciseCreate(CreateView):
     model = Exercise
     fields = ['name']
+    success_url = '/workouts/{workout_id}'
 
 class ExerciseUpdate(UpdateView):
     model = Exercise
