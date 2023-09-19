@@ -51,7 +51,7 @@ class ExerciseCreate(CreateView):
 
 class ExerciseUpdate(UpdateView):
     model = Exercise
-    fields = ['name']
+    fields = '__all__'
 
 class ExerciseDelete(DeleteView):
     model = Exercise
