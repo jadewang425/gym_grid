@@ -16,6 +16,10 @@
         {% csrf_token %}
         {{ exercise_form.as_p }}
         <input type="submit" class="btn" value="Add Exercise">
+        <div class="card-action">
+            <a href="{% url 'workouts_update' workout.id %}">Update</a>
+            <a href="{% url 'workouts_delete' workout.id %}">Delete</a>
+        </div>
     </form>
 </div>
 <script>
@@ -29,10 +33,10 @@
     });
 
     const categoryEl = document.getElementById('id_category');
-        M.FormSelect.init(categoryEl);
+    M.FormSelect.init(categoryEl);
 
     const equipEl = document.getElementById('id_equipment')
-        M.FormSelect.init(equipEl);
+    M.FormSelect.init(equipEl);
   </script>
 
 {% endblock%}
