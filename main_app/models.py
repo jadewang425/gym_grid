@@ -23,26 +23,26 @@ def get_eqpt_lst():
     response = requests.get('https://wger.de/api/v2/equipment')
     objects = response.json()
     lst_obj = objects['results']
-    equipments = [(i['id'], i['name']) for i in lst_obj]
+    equipments = [(i['name'], i['name']) for i in lst_obj]
     return tuple(equipments)
 
 def get_ctgy_lst():
     response = requests.get('https://wger.de/api/v2/exercisecategory/')
     objects = response.json()
     lst_obj = objects['results']
-    category = [(i['id'], i['name']) for i in lst_obj]
+    category = [(i['name'], i['name']) for i in lst_obj]
     return tuple(category)
 
 class Exercise(models.Model):
     name = models.CharField(max_length=50)
     date = models.DateField('exercise date')
     category = models.CharField(
-        max_length=20,
+        max_length=50,
         choices=get_ctgy_lst(),
         default=get_ctgy_lst()[0][0],
     )
     equipment = models.CharField(
-        max_length=20,
+        max_length=50,
         choices=get_eqpt_lst(),
         default=get_eqpt_lst()[0][0],
     )
@@ -51,8 +51,7 @@ class Exercise(models.Model):
     sets = models.IntegerField()
 
     def __str__(self):
-        return f"{self.name}: {self.reps} reps x {self.sets} set(s)"
-    
+        return f"{self.name}: {self.reps} reps x {self.sets} set(s) using {self.weights}lb weights. Equipment used: {self.equipment}. Muscle group targeted is {self.category}."
     def get_absolute_url(self):
         return reverse('exercises_detail', kwargs={'pk': self.id})
     

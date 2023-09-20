@@ -48,12 +48,12 @@ class ExerciseDetail(DetailView):
 class ExerciseCreate(CreateView):
     model = Exercise
     fields = '__all__'
-    success_url = '/exercises/{exercise_id}'
+    success_url = '/exercises/'
 
 
 class ExerciseUpdate(UpdateView):
     model = Exercise
-    fields = ['name']
+    fields = '__all__'
 
 class ExerciseDelete(DeleteView):
     model = Exercise
