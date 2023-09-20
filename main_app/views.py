@@ -49,12 +49,9 @@ class ExerciseDetail(DetailView):
 
 class ExerciseCreate(CreateView):
     model = Exercise
-<<<<<<<<< Temporary merge branch 1
-    fields = ['name']
+    fields = '__all__'
+  
     success_url = '/workouts/{workout_id}'
-=========
-    form_class = ExerciseForm
->>>>>>>>> Temporary merge branch 2
 
 class ExerciseUpdate(UpdateView):
     model = Exercise
@@ -63,7 +60,7 @@ class ExerciseUpdate(UpdateView):
 class ExerciseDelete(DeleteView):
     model = Exercise
     success_url = '/exercises/'
-
+  
 def add_exercise(request, workout_id):
     form = ExerciseForm(request.POST)
     if form.is_valid():

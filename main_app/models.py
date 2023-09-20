@@ -7,16 +7,16 @@ from django.contrib.auth.models import User
 
 import requests
 
-CATEGORIES = (
-    ('abs', 'Abs'), 
-    ('arms', 'Arms'), 
-    ('back', 'Back'), 
-    ('calves', 'Calves'), 
-    ('cardio', 'Cardio'), 
-    ('chest', 'Chest'), 
-    ('legs', 'Legs'), 
-    ('shoulders', 'Shoulders')
-)
+# CATEGORIES = (
+#     ('abs', 'Abs'), 
+#     ('arms', 'Arms'), 
+#     ('back', 'Back'), 
+#     ('calves', 'Calves'), 
+#     ('cardio', 'Cardio'), 
+#     ('chest', 'Chest'), 
+#     ('legs', 'Legs'), 
+#     ('shoulders', 'Shoulders')
+# )
 
 # function to return API data as a tuple of two-tuples for equipment dropdown
 def get_eqpt_lst():
@@ -26,13 +26,20 @@ def get_eqpt_lst():
     equipments = [(i['id'], i['name']) for i in lst_obj]
     return tuple(equipments)
 
+def get_ctgy_lst():
+    response = requests.get('https://wger.de/api/v2/exercisecategory/')
+    objects = response.json()
+    lst_obj = objects['results']
+    category = [(i['id'], i['name']) for i in lst_obj]
+    return tuple(category)
+
 class Exercise(models.Model):
     name = models.CharField(max_length=50)
     date = models.DateField('exercise date')
     category = models.CharField(
         max_length=20,
-        choices=CATEGORIES,
-        default=CATEGORIES[0][0],
+        choices=get_ctgy_lst(),
+        default=get_ctgy_lst()[0][0],
     )
     equipment = models.CharField(
         max_length=20,
@@ -66,4 +73,3 @@ class Workout(models.Model):
     
     def get_absolute_url(self):
         return reverse('detail', kwargs={'workout_id': self.id})
-    
