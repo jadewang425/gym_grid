@@ -7,6 +7,7 @@ from django.views.generic import ListView
 
 # Import Models
 from .models import Workout, Exercise
+from .forms import ExerciseForm
 
 # Create your views here.
 def home(request):
@@ -21,6 +22,7 @@ def workouts_index(request):
 
 def workouts_detail(request, workout_id):
     workout = Workout.objects.get(id=workout_id)
+
     # add form here
     return render(request, 'workouts/detail.html', {'workout': workout})
 
@@ -57,3 +59,12 @@ class ExerciseUpdate(UpdateView):
 class ExerciseDelete(DeleteView):
     model = Exercise
     success_url = '/exercises/'
+
+def add_exercise(request, workout_id):
+    form = ExerciseForm(request.POST)
+    if form.is_valid():
+        new_exercise = form.save(commit=False)
+        new_exercise.workout_id = workout_id
+        new_exercise.save()
+        return redirect('detail', workout_id=workout_id)
+

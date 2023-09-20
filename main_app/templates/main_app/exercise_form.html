@@ -2,7 +2,7 @@
 {% block content %}
 
   {% if object %}
-    <h1>Update {{ object.name }}</h1>
+    <h1>Update {{ exercise.name }}</h1>
   {% else %}
     <h1>Add Exercise</h1>
   {% endif %}
@@ -18,5 +18,8 @@
       value="{% if object %} Update Exercise {% else %} Add Exercise {% endif %}"
     />
   </form>
-
+  <script>
+    const selectEl = document.getElementById('id_category')
+    M.FormSelect.init(selectEl)
+  </script>
 {% endblock %}
