@@ -26,7 +26,7 @@ def get_eqpt_lst():
     equipments = [(i['id'], i['name']) for i in lst_obj]
     return tuple(equipments)
 
-def get_eqpt_lst():
+def get_ctgy_lst():
     response = requests.get('https://wger.de/api/v2/exercisecategory/')
     objects = response.json()
     lst_obj = objects['results']
@@ -37,8 +37,8 @@ class Exercise(models.Model):
     name = models.CharField(max_length=50)
     category = models.CharField(
         max_length=20,
-        choices=get_eqpt_lst(),
-        default=get_eqpt_lst()[0][0],
+        choices=get_ctgy_lst(),
+        default=get_ctgy_lst()[0][0],
     )
     equipment = models.CharField(
         max_length=20,
