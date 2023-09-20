@@ -22,8 +22,10 @@ def workouts_index(request):
 
 def workouts_detail(request, workout_id):
     workout = Workout.objects.get(id=workout_id)
+    exercises_id = workout.exercises.all().values_list('id')
+    exercises = Exercise.objects.exclude(id__in=exercises_id)
     exercise_form = ExerciseForm()
-    return render(request, 'workouts/detail.html', {'workout': workout, 'exercise_form': exercise_form})
+    return render(request, 'workouts/detail.html', {'workout': workout, 'exercise_form': exercise_form, 'exercises': exercises})
 
 class WorkoutCreate(CreateView):
     model = Workout
@@ -48,12 +50,10 @@ class ExerciseDetail(DetailView):
 class ExerciseCreate(CreateView):
     model = Exercise
     fields = '__all__'
-    success_url = '/exercises/{exercise_id}'
-
 
 class ExerciseUpdate(UpdateView):
     model = Exercise
-    fields = ['name']
+    fields = '__all__'
 
 class ExerciseDelete(DeleteView):
     model = Exercise
@@ -67,3 +67,11 @@ def add_exercise(request, workout_id):
         new_exercise.save()
         return render('detail', workout_id=workout_id)
 
+# associate exercise to a workout
+def assoc_exercise(request, workout_id, exercise_id):
+    Workout.objects.get(id=workout_id).exercises.add(exercise_id)
+    return redirect('detail', workout_id=workout_id)
+
+def unassoc_exercise(request, workout_id, exercise_id):
+    Workout.objects.get(id=workout_id).exercises.remove(exercise_id)
+    return redirect('detail', workout_id=workout_id)
