@@ -50,8 +50,7 @@ class Exercise(models.Model):
     sets = models.IntegerField()
 
     def __str__(self):
-        return f"{self.name}: {self.reps} reps x {self.sets} set(s)"
-    
+        return f"{self.name}: {self.reps} reps x {self.sets} set(s) using {self.weights}lb weights. Equipment used: {self.equipment}. Muscle group targeted is {self.category}."
     def get_absolute_url(self):
         return reverse('exercises_detail', kwargs={'pk': self.id})
     
