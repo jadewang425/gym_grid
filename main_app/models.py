@@ -28,6 +28,7 @@ def get_eqpt_lst():
 
 class Exercise(models.Model):
     name = models.CharField(max_length=50)
+    date = models.DateField('exercise date')
     category = models.CharField(
         max_length=20,
         choices=CATEGORIES,
@@ -48,6 +49,9 @@ class Exercise(models.Model):
     
     def get_absolute_url(self):
         return reverse('exercises_detail', kwargs={'pk': self.id})
+    
+    class Meta:
+        ordering = ['-date']
 
 class Workout(models.Model):
     name = models.CharField(max_length=100)
@@ -55,9 +59,11 @@ class Workout(models.Model):
     duration = models.CharField(max_length=50)
     description = models.TextField(max_length=200)
     exercises = models.ManyToManyField(Exercise, related_name='workouts')
+    
 
     def __str__(self):
         return self.name
     
     def get_absolute_url(self):
         return reverse('detail', kwargs={'workout_id': self.id})
+    
