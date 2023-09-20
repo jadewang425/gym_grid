@@ -22,9 +22,8 @@ def workouts_index(request):
 
 def workouts_detail(request, workout_id):
     workout = Workout.objects.get(id=workout_id)
-
-    # add form here
-    return render(request, 'workouts/detail.html', {'workout': workout})
+    exercise_form = ExerciseForm()
+    return render(request, 'workouts/detail.html', {'workout': workout, 'exercise_form': exercise_form})
 
 class WorkoutCreate(CreateView):
     model = Workout
@@ -49,9 +48,10 @@ class ExerciseDetail(DetailView):
 
 class ExerciseCreate(CreateView):
     model = Exercise
-    fields = '__all__'
-  
+    fields = ['name']
     success_url = '/workouts/{workout_id}'
+    form_class = ExerciseForm
+
 
 class ExerciseUpdate(UpdateView):
     model = Exercise
@@ -60,12 +60,12 @@ class ExerciseUpdate(UpdateView):
 class ExerciseDelete(DeleteView):
     model = Exercise
     success_url = '/exercises/'
-  
+
 def add_exercise(request, workout_id):
     form = ExerciseForm(request.POST)
     if form.is_valid():
         new_exercise = form.save(commit=False)
         new_exercise.workout_id = workout_id
         new_exercise.save()
-        return redirect('detail', workout_id=workout_id)
+        return render('detail', workout_id=workout_id)
 

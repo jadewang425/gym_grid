@@ -14,9 +14,24 @@
 <div class="col s5">
     <form action="{% url 'add_exercise' workout.id %}" method="POST">
         {% csrf_token %}
-        {{ exercise_form }}
+        {{ exercise_form.as_p }}
         <input type="submit" class="btn" value="Add Exercise">
     </form>
 </div>
+<script>
+    const dateEl = document.getElementById('id_date');
+    // M is Materialize's global variable
+    M.Datepicker.init(dateEl, {
+      format: 'yyyy-mm-dd',
+      defaultDate: new Date(),
+      setDefaultDate: true,
+      autoClose: true
+    });
+
+    const categoryEl = document.getElementById('id_category');
+    const equipEl = document.getElementById('id_equipment')
+  M.FormSelect.init(categoryEl);
+  M.FormSelect.init(equipEl);
+  </script>
 
 {% endblock%}
