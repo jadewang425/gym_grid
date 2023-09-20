@@ -28,7 +28,7 @@ def workouts_detail(request, workout_id):
 
 class WorkoutCreate(CreateView):
     model = Workout
-    fields = '__all__'
+    fields = ['name', 'date', 'duration', 'description']
     success_url = '/workouts/{workout_id}'
 
 class WorkoutUpdate(UpdateView):
@@ -51,7 +51,7 @@ class ExerciseCreate(CreateView):
     model = Exercise
     fields = '__all__'
   
-    success_url = '/workouts/{workout_id}'
+    success_url = '/exercises/{exercise_id}'
 
 class ExerciseUpdate(UpdateView):
     model = Exercise
