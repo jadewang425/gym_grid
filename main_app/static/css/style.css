@@ -3,13 +3,22 @@ body {
     min-height: 100vh;
     flex-direction: column;
     font-family: 'Noto Sans', sans-serif;
-  }
+}
   
-  main {
-    flex: 1 0 auto;
-  }
+main {
+  flex: 1 0 auto;
+}
   
-  footer.page-footer {
-    padding-top: 0;
-    text-align: right;
-  }
+footer.page-footer {
+  padding-top: 0;
+  text-align: right;
+}
+
+.background-image {
+  background-image: url('../images/josh-nuttall-XVTWFHcNIko-unsplash.jpg');
+  background-size:cover;
+}
+
+.text-outline {
+  text-shadow: -0.3px -0.3px 0 #fff, 0.3px -0.3px 0 #fff, -0.3px 0.3px 0 #fff, 0.3px 0.3px 0 #fff;
+}
