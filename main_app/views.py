@@ -49,8 +49,12 @@ class ExerciseDetail(DetailView):
 
 class ExerciseCreate(CreateView):
     model = Exercise
+<<<<<<<<< Temporary merge branch 1
     fields = ['name']
     success_url = '/workouts/{workout_id}'
+=========
+    form_class = ExerciseForm
+>>>>>>>>> Temporary merge branch 2
 
 class ExerciseUpdate(UpdateView):
     model = Exercise
