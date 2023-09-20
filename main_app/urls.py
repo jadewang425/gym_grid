@@ -19,4 +19,7 @@ urlpatterns = [
     path('exercises/create/', views.ExerciseCreate.as_view(), name='exercises_create'),
     path('exercises/<int:pk>/update/', views.ExerciseUpdate.as_view(), name='exercises_update'),
     path('exercises/<int:pk>/delete/', views.ExerciseDelete.as_view(), name='exercises_delete'),
+    # associate and unassociate exercises on the workout detail page
+    path('workouts/<int:workout_id>/assoc_exercise/<int:exercise_id', views.assoc_exercise, name='assoc_exercise'),
+    path('workouts/<int:workout_id>/unassoc_exercise/<int:exercise_id', views.unassoc_exercise, name='unassoc_exercise'),
 ]
