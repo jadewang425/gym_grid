@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect
 # Import CBV's
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.detail import DetailView
-from django.views.generic import ListView
+from django.views.generic.list import ListView
 
 # Import Models
 from .models import Workout, Exercise

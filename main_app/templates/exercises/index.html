@@ -1,17 +1,30 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %}
+{% block content %}
 
 <h1>Exercise List</h1>
+<table class="striped">
+  <thead>
+    <tr>
+        <th>Name</th>
+        <th>Category</th>
+        <th>Equipment</th>
+        <th>Weights (lbs)</th>
+        <th>Reps</th>
+        <th>Sets</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for exercise in object_list %}
+    <tr>
+      <td><a href="{% url 'exercises_detail' exercise.id %}">{{ exercise.name }}</a></td>
+      <td>{{ exercise.category }}</td>
+      <td>{{ exercise.equipment }}</td>
+      <td>{{ exercise.weights }}</td>
+      <td>{{ exercise.reps }}</td>
+      <td>{{ exercise.sets }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
 
-{% for exercise in object_list %}
-<div class="card">
-  <a href="{% url 'exercises_detail' exercise.id %}">
-    <div class="card-content">
-      <span class="card-title"
-        >
-        {{exercise}}</span
-      >
-    </div>
-  </a>
-</div>
-
-{% endfor %} {% endblock%}
+{% endblock %}
