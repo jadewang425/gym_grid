@@ -29,9 +29,10 @@
     });
 
     const categoryEl = document.getElementById('id_category');
+        M.FormSelect.init(categoryEl);
+
     const equipEl = document.getElementById('id_equipment')
-  M.FormSelect.init(categoryEl);
-  M.FormSelect.init(equipEl);
+        M.FormSelect.init(equipEl);
   </script>
 
 {% endblock%}
