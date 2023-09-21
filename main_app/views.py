@@ -7,7 +7,7 @@ from django.views.generic.list import ListView
 
 # Import Models
 from .models import Workout, Exercise
-from .forms import ExerciseForm
+from .forms import AddExerciseForm
 
 # Create your views here.
 def home(request):
@@ -24,8 +24,8 @@ def workouts_detail(request, workout_id):
     workout = Workout.objects.get(id=workout_id)
     exercises_id = workout.exercises.all().values_list('id')
     exercises = Exercise.objects.exclude(id__in=exercises_id)
-    exercise_form = ExerciseForm()
-    return render(request, 'workouts/detail.html', {'workout': workout, 'exercise_form': exercise_form, 'exercises': exercises})
+    add_exercise_form = AddExerciseForm()
+    return render(request, 'workouts/detail.html', {'workout': workout, 'add_exercise_form': add_exercise_form, 'exercises': exercises})
 
 class WorkoutCreate(CreateView):
     model = Workout
@@ -60,11 +60,11 @@ class ExerciseDelete(DeleteView):
     success_url = '/exercises/'
 
 def add_exercise(request, workout_id):
-    form = ExerciseForm(request.POST)
+    form = AddExerciseForm(request.POST)
+    print('add_exercise_func', form)
+    workout = Workout.objects.get(id=workout_id)
     if form.is_valid():
-        new_exercise = form.save(commit=False)
-        new_exercise.workout_id = workout_id
-        new_exercise.save()
+        workout.exercises.add()
         return render('detail', workout_id=workout_id)
 
 # associate exercise to a workout

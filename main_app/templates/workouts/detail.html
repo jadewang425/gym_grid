@@ -17,10 +17,17 @@
 </div>
 <div class="row">
     <div class="col s6">
+        <h5>Exercises</h5>
         {% if workout.exercises.count %}
-            {% for e in workout.exercises.all %}
-                {{ e }}
-            {% endfor %}
+            <table class="striped">
+                <tbody>
+                    {% for e in workout.exercises.all %}
+                    <tr>
+                        <td>{{ e }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
         {% else %}
             <h5>No Exercises Added</h5>
         {% endif %}
@@ -28,26 +35,14 @@
     <div class="col s6">
         <form action="{% url 'add_exercise' workout.id %}" method="POST">
             {% csrf_token %}
-            {{ exercise_form.as_p }}
+            {{ add_exercise_form.as_p }}
             <input type="submit" class="btn" value="Add Exercise">
         </form>
     </div>
 </div>
 <script>
-    const dateEl = document.getElementById('id_date');
-    // M is Materialize's global variable
-    M.Datepicker.init(dateEl, {
-      format: 'yyyy-mm-dd',
-      defaultDate: new Date(),
-      setDefaultDate: true,
-      autoClose: true
-    });
-
-    const categoryEl = document.getElementById('id_category');
-    M.FormSelect.init(categoryEl);
-
-    const equipEl = document.getElementById('id_equipment')
-    M.FormSelect.init(equipEl);
-  </script>
+    const addExerciseEl = document.getElementById('id_exercises')
+    M.FormSelect.init(addExerciseEl);
+</script>
 
 {% endblock%}
