@@ -33,12 +33,9 @@
         {% endif %}
     </div>
     <div class="col s6">
-        <form action="{% url 'add_exercise' workout.id exercise.id %}" method="POST">
+        <form action="{% url 'add_exercise' workout.id %}" method="POST">
             {% csrf_token %}
-            <select name="" id="id_exercises"></select>
-            {% for exercise in exercises %}
-                {{ exercise }}
-            {% endfor %}
+            {{ add_exercise_form.as_p }}
             <input type="submit" class="btn" value="Add Exercise">
         </form>
     </div>
