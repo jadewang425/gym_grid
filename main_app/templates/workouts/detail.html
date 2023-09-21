@@ -7,7 +7,7 @@
         <div class="card-content">
             <span class="card-title">{{ workout.name }}</span>
             <p>Duration: {{ workout.duration }}</p>
-            <p>Description: {{ workout.description }}</p>
+            <p>Description: {{ workout.description|linebreaks }}</p>
         </div>
         <div class="card-action">
             <a href="{% url 'workouts_update' workout.id %}" class="btn">Update</a>
