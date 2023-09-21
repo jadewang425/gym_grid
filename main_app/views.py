@@ -59,12 +59,12 @@ class ExerciseDelete(DeleteView):
     model = Exercise
     success_url = '/exercises/'
 
-def add_exercise(request, workout_id):
+def add_exercise(request, workout_id, exercise_id):
     form = AddExerciseForm(request.POST)
     print('add_exercise_func', form)
     workout = Workout.objects.get(id=workout_id)
     if form.is_valid():
-        workout.exercises.add()
+        workout.exercises.add(exercise_id)
         return render('detail', workout_id=workout_id)
 
 # associate exercise to a workout

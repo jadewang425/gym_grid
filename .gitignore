@@ -1,3 +1,4 @@
 gymgrid\__pycache__
 main_app\__pycache__
 gymgrid\settings.py
+.env
