@@ -22,4 +22,5 @@ urlpatterns = [
     path('workouts/<int:workout_id>/add_exercise/', views.add_exercise, name='add_exercise'),
     path('workouts/<int:workout_id>/assoc_exercise/<int:exercise_id', views.assoc_exercise, name='assoc_exercise'),
     path('workouts/<int:workout_id>/unassoc_exercise/<int:exercise_id', views.unassoc_exercise, name='unassoc_exercise'),
+    path('accounts/signup/', views.signup, name='signup'),
 ]

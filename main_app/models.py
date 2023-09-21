@@ -63,6 +63,7 @@ class Workout(models.Model):
     duration = models.CharField(max_length=50)
     description = models.TextField(max_length=200)
     exercises = models.ManyToManyField(Exercise)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     
 
     def __str__(self):
