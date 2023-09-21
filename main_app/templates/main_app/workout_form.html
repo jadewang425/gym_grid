@@ -3,16 +3,25 @@
 {% block content %}
     {% if object %}
         <h1>Edit Workout</h1>
+        <form action="" method="POST">
+            {% csrf_token %}
+            <table>
+                {{ form.as_table }}
+            </table>
+            <input type="submit" value="Update" class="btn">
+            <a href="{% url 'detail' workout.id %}" class="btn red">Cancel</a>
+        </form>
     {% else %}
         <h1>Create A Workout</h1>
+        <form action="" method="POST">
+            {% csrf_token %}
+            <table>
+                {{ form.as_table }}
+            </table>
+            <input type="submit" value="Add Workout" class="btn">
+            <a href="{% url 'index' %}" class="btn red">Cancel</a>
+        </form>
     {% endif %}
-    <form action="" method="POST">
-        {% csrf_token %}
-        <table>
-            {{ form.as_table }}
-        </table>
-        <input type="submit" value="Submit!" class="btn">
-    </form>
     <script>
         const dateEl = document.getElementById('id_date')
         M.Datepicker.init(dateEl, {
@@ -21,5 +30,7 @@
             setDefaultDate: true,
             autoClose: true
         });
-      </script>
+        const addExerciseEl = document.getElementById('id_exercises')
+        M.FormSelect.init(addExerciseEl);
+    </script>
 {% endblock %}

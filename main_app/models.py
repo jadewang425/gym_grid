@@ -35,7 +35,6 @@ def get_ctgy_lst():
 
 class Exercise(models.Model):
     name = models.CharField(max_length=50)
-    date = models.DateField('exercise date')
     category = models.CharField(
         max_length=50,
         choices=get_ctgy_lst(),
@@ -56,14 +55,15 @@ class Exercise(models.Model):
         return reverse('exercises_detail', kwargs={'pk': self.id})
     
     class Meta:
-        ordering = ['-date']
+        ordering = ['name']
 
 class Workout(models.Model):
     name = models.CharField(max_length=100)
     date = models.DateField('workout date')
     duration = models.CharField(max_length=50)
     description = models.TextField(max_length=200)
-    exercises = models.ManyToManyField(Exercise, related_name='workouts')
+    exercises = models.ManyToManyField(Exercise)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     
 
     def __str__(self):

@@ -1,7 +1,7 @@
 from django.forms import ModelForm
-from .models import Exercise
+from .models import Workout
 
-class ExerciseForm(ModelForm):
+class AddExerciseForm(ModelForm):
     class Meta:
-        model = Exercise
-        fields = '__all__'
+        model = Workout
+        fields = ['exercises']
