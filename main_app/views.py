@@ -29,7 +29,7 @@ def workouts_detail(request, workout_id):
 
 class WorkoutCreate(CreateView):
     model = Workout
-    fields = ['name', 'date', 'duration', 'description']
+    fields = '__all__'
 
 class WorkoutUpdate(UpdateView):
     model = Workout 
