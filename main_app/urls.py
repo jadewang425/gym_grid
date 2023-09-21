@@ -12,7 +12,6 @@ urlpatterns = [
     path('workouts/create/', views.WorkoutCreate.as_view(), name='workouts_create'),
     path('workouts/<int:pk>/update/', views.WorkoutUpdate.as_view(), name='workouts_update'),
     path('workouts/<int:pk>/delete/', views.WorkoutDelete.as_view(), name='workouts_delete'),
-    path('workouts/<int:workout_id>/add_exercise/', views.add_exercise, name='add_exercise'),
     # Exercise List, Create, Update, Delete
     path('exercises/', views.ExerciseList.as_view(), name='exercises_index'),
     path('exercises/<int:pk>/', views.ExerciseDetail.as_view(), name='exercises_detail'),
@@ -20,6 +19,7 @@ urlpatterns = [
     path('exercises/<int:pk>/update/', views.ExerciseUpdate.as_view(), name='exercises_update'),
     path('exercises/<int:pk>/delete/', views.ExerciseDelete.as_view(), name='exercises_delete'),
     # associate and unassociate exercises on the workout detail page
+    path('workouts/<int:workout_id>/add_exercise/', views.add_exercise, name='add_exercise'),
     path('workouts/<int:workout_id>/assoc_exercise/<int:exercise_id', views.assoc_exercise, name='assoc_exercise'),
     path('workouts/<int:workout_id>/unassoc_exercise/<int:exercise_id', views.unassoc_exercise, name='unassoc_exercise'),
 ]

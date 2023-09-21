@@ -63,7 +63,7 @@ class Workout(models.Model):
     date = models.DateField('workout date')
     duration = models.CharField(max_length=50)
     description = models.TextField(max_length=200)
-    exercises = models.ManyToManyField(Exercise, related_name='workouts')
+    exercises = models.ManyToManyField(Exercise)
     
 
     def __str__(self):
