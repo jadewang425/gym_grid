@@ -30,6 +30,7 @@ AAU, I want to
 ####  Ice Box
 - Display other people's workouts for inspirations
 - On create workout form, predicts exercise adding based on words typed
+- Add filter function on the exercise index page
 - Connect 3rd-party API for exercises
 
 ## Technologies Used
@@ -60,6 +61,6 @@ Create Workout Plan
 ![wireframe](https://i.imgur.com/urJUw5w.png)
 
 ## ERD
-![screenshot](https://i.imgur.com/5Lu66Zw.png)
+![screenshot](https://i.imgur.com/LPsz1hA.png)
 
 #### [Link to GymGrid](https://gymgrid.onrender.com)
