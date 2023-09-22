@@ -18,6 +18,8 @@ urlpatterns = [
     path('exercises/create/', views.ExerciseCreate.as_view(), name='exercises_create'),
     path('exercises/<int:pk>/update/', views.ExerciseUpdate.as_view(), name='exercises_update'),
     path('exercises/<int:pk>/delete/', views.ExerciseDelete.as_view(), name='exercises_delete'),
+    #url for s3 upload
+    path('exercises/<int:exercise_id>/add_photo/', views.add_photo, name='add_photo'),
     # associate and unassociate exercises on the workout detail page
     path('workouts/<int:workout_id>/add_exercise/', views.add_exercise, name='add_exercise'),
     path('workouts/<int:workout_id>/assoc_exercise/<int:exercise_id', views.assoc_exercise, name='assoc_exercise'),

@@ -17,5 +17,17 @@
     </div>
   </a>
 </div>
-
+{% for photo in exercise.photo_set.all %}
+     <img src="{{ photo.url }}" alt="photo-of-exercise" class="responsive-img 
+     card-panel">
+{% empty %}
+     <div class="card-panel teal-text center-align">No Photos</div>
+{% endfor %}
+<form action="{% url 'add_photo' exercise.id %}" method="POST" 
+class="card-panel" enctype="multipart/form-data">
+     {% csrf_token %}
+     <input type="file" name="photo-file">
+     <br><br>
+     <button class="btn" type="submit">Upload Photo</button>
+</form>
 {% endblock %}
