@@ -12,8 +12,13 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth import login
 
 # Import Models
-from .models import Workout, Exercise
+from .models import Workout, Exercise, Photo
 from .forms import AddExerciseForm
+
+# for adding photos we need more imports
+import uuid
+import boto3
+import os
 
 # Create your views here.
 def home(request):
@@ -110,3 +115,30 @@ def signup(request):
     form = UserCreationForm()
     context = {'form': form, 'error_message': error_message}
     return render(request, 'registration/signup.html', context)
+
+# adding photos via s3
+def add_photo(request, exercise_id):
+    # we need a photo file (named via the 'name' attribute in the form field)
+    photo_file = request.FILES.get('photo-file', None)
+    AWS_ACCESS_Key = os.environ['AWS_ACCESS_KEY']
+    AWS_SECRET_ACCESS_Key = os.environ['AWS_SECRET_ACCESS_KEY']
+    #check if we actually got a photo, do something if we did, do something else if we didn't
+    if photo_file:
+        #here's where we'll do our S3 stuff
+        #target s3
+        s3 = boto3.client('s3', aws_access_key_id=AWS_ACCESS_Key,
+         aws_secret_access_key=AWS_SECRET_ACCESS_Key)
+        # we need a unique name for all of our files, so we'll use uuid to 
+        # generate one automatically
+        key = uuid.uuid4().hex[:6] + photo_file.name[photo_file.name.rfind('.'):]
+        # just in case something goes wrong
+        try:
+            bucket = os.environ['S3_BUCKET']
+            s3.upload_fileobj(photo_file, bucket, key)
+            # we'll build the entire url string
+            url = f'{os.environ["S3_BASE_URL"]}{bucket}/{key}'
+            # we create the photo and associate it with the exercise
+            Photo.objects.create(url=url, exercise_id=exercise_id)
+        except Exception as e:
+            print('An error occurred uploading to s3')
+        return redirect('detail', exercise_id=exercise_id)
