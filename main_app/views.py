@@ -40,7 +40,6 @@ def workouts_detail(request, workout_id):
     add_exercise_form = AddExerciseForm()
     return render(request, 'workouts/detail.html', {'workout': workout, 'add_exercise_form': add_exercise_form, 'exercises': exercises})
 
-
 class WorkoutCreate(LoginRequiredMixin, CreateView):
     model = Workout
     fields = ['name', 'date', 'duration', 'description', 'exercises']
@@ -48,9 +47,6 @@ class WorkoutCreate(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super().form_valid(form)
-    
-    
-
 
 class WorkoutUpdate(LoginRequiredMixin, UpdateView):
     model = Workout 
