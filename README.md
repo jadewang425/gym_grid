@@ -1,27 +1,36 @@
 # GymGrid
-Effortlessly plan and track your fitness journey with GymGrid. Create customized workout routines and stay motivated as you achieve your fitness goals. Whether you're a beginner or a seasoned athlete, our user-friendly app makes it easy to schedule and monitor your workouts, ensuring you stay on the path to a healthier, stronger you.
-
-##
+A fitness app to create workouts and customize your exercises within each workout. An user-friendly application to help individuals reaching their fitness goals.
 
 ## User Stories
 AAU, I want to
 - create workout plans
 - create exercises to be added to the workout plan
     - add reps and weights to each set
-- see all my wokrout plans on my index page
+- see all my wokrout plans on the index page
 - add exercises on the workout detail page
-- add pictures to my workout plan
+- add pictures to exercises
 
 
 #### Current/MVP
 
 #### Completed
+- Create models
+- Workout index page
+- Workout create page
+- Workout detail page
+- Exercise create page
+- Exercise index page
+- Exercise detail page
+- Use 3rd-party API for exercise category and equipment
+- Upload images using Amazon S3
+- Authenication & Authorization
+- About page content
+- Homepage setup
 
 ####  Ice Box
-- like a blog that you can see other people's plans
-- record weights used for the exercise
-- In create workout form, search existing exercise box predicts based on letter you type
-- customize exercise name
+- Display other people's workouts for inspirations
+- On create workout form, predicts exercise adding based on words typed
+- Connect 3rd-party API for exercises
 
 ## Technologies Used
 - Python
@@ -53,4 +62,4 @@ Create Workout Plan
 ## ERD
 ![screenshot](https://i.imgur.com/5Lu66Zw.png)
 
-#### Link to the app
+#### [Link to GymGrid](https://gymgrid.onrender.com)
