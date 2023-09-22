@@ -32,13 +32,13 @@
             <h5>No Exercises Added</h5>
         {% endif %}
     </div>
-    <div class="col s6">
+    <!-- <div class="col s6">
         <form action="{% url 'add_exercise' workout.id %}" method="POST">
             {% csrf_token %}
             {{ add_exercise_form.as_p }}
             <input type="submit" class="btn" value="Add Exercise">
         </form>
-    </div>
+    </div> -->
 </div>
 <script>
     const addExerciseEl = document.getElementById('id_exercises')
