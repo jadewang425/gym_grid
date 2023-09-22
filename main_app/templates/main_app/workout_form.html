@@ -1,26 +1,29 @@
 {% extends 'base.html' %}
 
 {% block content %}
+
     {% if object %}
-        <h1>Edit Workout</h1>
-        <form action="" method="POST">
-            {% csrf_token %}
-            <table>
-                {{ form.as_table }}
-            </table>
-            <input type="submit" value="Update" class="btn">
-            <a href="{% url 'detail' workout.id %}" class="btn red">Cancel</a>
-        </form>
-    {% else %}
-        <h1>Create A Workout</h1>
-        <form action="" method="POST">
-            {% csrf_token %}
-            <table>
-                {{ form.as_table }}
-            </table>
-            <input type="submit" value="Add Workout" class="btn">
-            <a href="{% url 'index' %}" class="btn red">Cancel</a>
-        </form>
+        <div>
+            <h1>Edit Workout</h1>
+            <form action="" method="POST" class="card-panel">
+                {% csrf_token %}
+                <table>
+                    {{ form.as_table }}
+                </table>
+                <input type="submit" value="Update" class="btn">
+                <a href="{% url 'detail' workout.id %}" class="btn red cool-box-create-page">Cancel</a>
+            </form>
+        {% else %}
+            <h1>Create A Workout</h1>
+            <form action="" method="POST">
+                {% csrf_token %}
+                <table>
+                    {{ form.as_table }}
+                </table>
+                <input type="submit" value="Add Workout" class="btn cool-box-create-page">
+                <a href="{% url 'index' %}" class="btn red cool-box-create-page">Cancel</a>
+            </form>
+        </div>
     {% endif %}
     <script>
         const dateEl = document.getElementById('id_date')
