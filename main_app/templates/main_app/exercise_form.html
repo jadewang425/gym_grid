@@ -12,11 +12,11 @@
     <table>
       {{ form.as_table }}
     </table>
-      <input
-        class="btn"
-        type="submit"
-        value="{% if object %} Update Exercise {% else %} Add Exercise {% endif %}"
-      />
+    <input
+      class="btn"
+      type="submit"
+      value="{% if object %} Update Exercise {% else %} Add Exercise {% endif %}"
+    >
   </form>
   <script>
     const selectEl = document.getElementById('id_category')
